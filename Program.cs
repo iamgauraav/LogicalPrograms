@@ -2,7 +2,7 @@
 
 namespace LogicalPrograms
 {/// <summary>
-/// UC3- Prime Number
+/// UC4- Reverse a Number
 /// </summary>
 
     class Program
@@ -10,28 +10,22 @@ namespace LogicalPrograms
         static void Main(string[] args)
         {
             //local variable
-            int num;
-            int flag = 0;
-          
+            int rev=0;
+            int rem = 0;
+
             //taking input from user
             Console.WriteLine("Enter number");
-            num = int.Parse(Console.ReadLine());
+            int num = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 2; i < num/2; i++)
+         
+            while (num > 0)
             {
-                if (num % i == 0)
-                {
-                    Console.WriteLine("Number {0} is not a prime number",num);
-                    flag = 1;
-                    break;
-                }
+                num = num / 10;
+                rem= num % 10;
+                rev = (rev * 10) + num;
             }
-            if (flag == 0)
-            {
-                Console.WriteLine("Number {0} is  a prime number",num);
-            }
+            Console.WriteLine("The reverse of the given number is:" + rev);
             Console.ReadLine();
-
         }
     }
 }
