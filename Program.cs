@@ -2,7 +2,7 @@
 
 namespace LogicalPrograms
 {/// <summary>
-/// UC1- Fibonacci Series
+/// UC2- Perfect Number
 /// </summary>
 
     class Program
@@ -10,24 +10,37 @@ namespace LogicalPrograms
         static void Main(string[] args)
         {
             //local variable
-            int a = 0;
-            int b = 1;
-            int c;
+            int number, n;
+            int sum=0;
 
             //taking input from user
             Console.WriteLine("Enter number");
-            int number = Convert.ToInt32(Console.ReadLine());
-            //For loop
-            for (int i = 0; i < number; i++)
-            {
-                c = a + b;
-                Console.WriteLine(c);
+            number = Convert.ToInt32(Console.ReadLine());
+            n = number;
 
-                //swapping a and b
-                a = b;
-                b = c;
+            Console.WriteLine("The Divisors for the number {0} are" , number);
+
+            for (int divisor = 1; divisor < number; divisor++)
+            {
+                if ((number % divisor) == 0)
+                {
+                    Console.Write("{0} ",divisor);
+
+                    sum += divisor;
+                }
             }
-            Console.ReadLine();
+
+            //Checking whether number is perfect or not 
+            if (sum == n)
+            {
+                Console.WriteLine("\nEntered number is perfect number");
+                Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("\nEntered number is not perfect number");
+                Console.ReadLine();
+            }
         }
     }
 }
