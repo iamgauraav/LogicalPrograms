@@ -2,7 +2,7 @@
 
 namespace LogicalPrograms
 {/// <summary>
-/// UC2- Perfect Number
+/// UC3- Prime Number
 /// </summary>
 
     class Program
@@ -10,37 +10,28 @@ namespace LogicalPrograms
         static void Main(string[] args)
         {
             //local variable
-            int number, n;
-            int sum=0;
-
+            int num;
+            int flag = 0;
+          
             //taking input from user
             Console.WriteLine("Enter number");
-            number = Convert.ToInt32(Console.ReadLine());
-            n = number;
+            num = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("The Divisors for the number {0} are" , number);
-
-            for (int divisor = 1; divisor < number; divisor++)
+            for (int i = 2; i < num/2; i++)
             {
-                if ((number % divisor) == 0)
+                if (num % i == 0)
                 {
-                    Console.Write("{0} ",divisor);
-
-                    sum += divisor;
+                    Console.WriteLine("Number {0} is not a prime number",num);
+                    flag = 1;
+                    break;
                 }
             }
+            if (flag == 0)
+            {
+                Console.WriteLine("Number {0} is  a prime number",num);
+            }
+            Console.ReadLine();
 
-            //Checking whether number is perfect or not 
-            if (sum == n)
-            {
-                Console.WriteLine("\nEntered number is perfect number");
-                Console.ReadLine();
-            }
-            else
-            {
-                Console.WriteLine("\nEntered number is not perfect number");
-                Console.ReadLine();
-            }
         }
     }
 }
