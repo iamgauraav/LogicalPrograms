@@ -11,6 +11,7 @@ namespace LogicalPrograms
         {
             random cou = new random();
             cou.Coupan();
+            Console.ReadLine();
         }
     }
 }
